@@ -1,0 +1,507 @@
+{
+	"info": {
+		"_postman_id": "9b6e623f-2c0e-4e58-9f4e-532028396912",
+		"name": "BiddingApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auctions",
+			"item": [
+				{
+					"name": "Auction Details",
+					"item": [
+						{
+							"name": "Index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/auctions/details",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"auctions",
+										"details"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/auctions/{{auction_id}}/details",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"auctions",
+										"{{auction_id}}",
+										"details"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"auction\":{\n\t\t\"title\": \"Mercedes For Sale\",\n\t\t\"description\": \"Barely used Mercedes for sale\",\n\t\t\"email\": \"igor@spiridonov.com\",\n\t\t\"status\": \"PENDING\",\n\t\t\"starting_price\": 124200,\n\t\t\"buy_now_price\": 185000,\n\t\t\"start_date\": \"2022-07-30T01:47:12Z\",\n\t\t\"end_date\": \"2022-08-29T01:47:12Z\",\n\t\t\"listing_id\": \"{{listing_id}}\"\n\t\t\n\t}\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/auctions",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"auctions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Index",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/auctions/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"auctions",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/auctions/{{auction_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"auctions",
+								"{{auction_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Start",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/auctions/{{auction_id}}/start",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"auctions",
+								"{{auction_id}}",
+								"start"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Stop",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/auctions/{{auction_id}}/stop",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"auctions",
+								"{{auction_id}}",
+								"stop"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/auctions/{{auction_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"auctions",
+								"{{auction_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"auction\":{\n        \"status\": \"CLOSED\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/auctions/{{auction_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"auctions",
+								"{{auction_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bids",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"bid\":{\n\t\t\"email\": \"igor@spiridonov.com\",\n\t\t\"ammount\": 160000,\n\t\t\"auction_id\": \"{{auction_id}}\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/bids",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"bids"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/bids/{{bid_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"bids",
+								"{{bid_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Index",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/bids",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"bids"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"bid\":{\n        \"ammount\": 161000.00\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/bids/{{bid_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"bids",
+								"{{bid_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/bids/{{bid_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"bids",
+								"{{bid_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Listings",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"listing\":{\n\n\t\t\"brand\": \"Mercedes-Benz\",\n        \"name\": \"Mercedes-Benz S63 AMG Coupe\",\n\t\t\"condition\": \"USED\",\n        \"location\": \"Munich, Germany\",\n\t\t\"purchase_date\": \"2021-07-29T01:47:12Z\"\n\t\t\n\t}\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/listings",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"listings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/listings/{{listing_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"listings",
+								"{{listing_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Index",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/listings",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"listings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"listing\":{\n        \"name\": \"BMW M5 CS\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/listings/{{listing_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"listings",
+								"{{listing_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/bids/{{bid_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"bids",
+								"{{bid_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "192.168.1.251:4000"
+		},
+		{
+			"key": "auction_id",
+			"value": "9c90dba0-39c6-4ab9-a291-144d077b8b18"
+		},
+		{
+			"key": "bid_id",
+			"value": "004bb97d-4ccc-4135-bc65-3a5d35bb45c0"
+		},
+		{
+			"key": "listing_id",
+			"value": "9e86422a-4009-4fa5-b6d0-48c2375d8051"
+		}
+	]
+}
